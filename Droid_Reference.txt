@@ -1,0 +1,34 @@
+- Activities
+- Services
+- Broadcast Receivers
+- Content Providers
+
+- Activating Components
+	- Intents : bind individual components to each other at runtime.
+				activity - startActivity() or startActivityForResult()
+				services - startService(), bindService()
+				and broadcast - sendBroadcast(), sendOrderedBroadcast(), or sendStickyBroadcast().
+	- ContentResolvers : handles all direct transactions with the content provider so that the component that's performing transactions with the provider 
+						doesn't need to and instead calls methods on the ContentResolver object.
+						query()
+
+- The manifest file
+	- The system must know that the component exists by reading the app's manifest file, AndroidManifest.xml.
+	- <activity> elements for activities.
+	- <service> elements for services.
+	- <receiver> elements for broadcast receivers.
+	- <provider> elements for content providers.
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<manifest ... >
+			<application android:icon="@drawable/app_icon.png" ... >
+				<activity android:name="com.example.project.ExampleActivity"
+						  android:label="@string/example_label" ... >
+				</activity>
+				...
+			</application>
+		</manifest>
+		
+		- android:icon, attribute points to resources for an icon that identifies the app.
+		- android:name attribute specifies the fully qualified class name of the Activity subclass 
+		- android:label attribute specifies a string to use as the user-visible label for the activity.
